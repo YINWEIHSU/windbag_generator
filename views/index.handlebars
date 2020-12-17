@@ -1,0 +1,39 @@
+<div class="container py-5">
+  <div class="title">
+    <h5>你想對誰說幹話?</h5>
+  </div>
+
+  {{!-- radio part --}}
+  <form method="POST" action="/">
+    <div class="radio-group row">
+      {{#each target}}
+      <div class="col-4">
+        <div class="card" style="width: 18rem;">
+          <img src="{{this.image}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="{{this.enName}}Radio"
+                value="{{this.enName}}" {{#if this.enName}}checked{{/if}}>
+              <label class="form-check-label" for="{{this.enName}}Radio">
+                {{this.chName}}
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+
+    <div class="creat-windbag row m-1">
+      {{!-- Button --}}
+      <div class="col-2">
+        <button type="submit" class="btn btn-outline-secondary">產生幹話</button>
+      </div>
+      {{!-- form --}}
+      <div class="col-10">
+        <textarea class="form-control" id="exampleFormControlTextarea1"
+          rows="2">{{#if windBag}}{{windBag}}{{/if}}</textarea>
+      </div>
+    </div>
+  </form>
+</div>
