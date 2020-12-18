@@ -1,27 +1,56 @@
 <div class="container py-5">
-  <div class="title">
-    <h5>你想對誰說幹話?</h5>
+  <div class="title text-center mb-5">
+    <h3 class="fs-2 fw-bolder">你想對誰說幹話?</h3>
   </div>
 
   {{!-- radio part --}}
   <form method="POST" action="/">
     <div class="radio-group row">
-      {{#each target}}
       <div class="col-4">
-        <div class="card" style="width: 18rem;">
-          <img src="{{this.image}}" class="card-img-top" alt="...">
+        <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+          <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5668/angry-developer.jpg"
+            class="card-img-top" style="height: 11rem;" alt="...">
           <div class="card-body">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="{{this.enName}}Radio"
-                value="{{this.enName}}" {{#if this.enName}}checked{{/if}}>
-              <label class="form-check-label" for="{{this.enName}}Radio">
-                {{this.chName}}
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="engineerRadio" value="engineer"
+                {{#ifEquals position 'engineer' }} checked {{/ifEquals}}>
+              <label class="form-check-label" for="engineerRadio">
+                工程師
               </label>
             </div>
           </div>
         </div>
       </div>
-      {{/each}}
+      <div class="col-4">
+        <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+          <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5667/angry-designer.jpg"
+            class="card-img-top" style="height: 11rem;" alt="...">
+          <div class="card-body">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="designerRadio" value="designer"
+                {{#ifEquals position 'designer' }} checked {{/ifEquals}}>
+              <label class="form-check-label" for="designerRadio">
+                設計師
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card text-dark bg-danger mb-3" style="max-width: 18rem;">
+          <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5669/angry-founder.jpg"
+            class="card-img-top" style="height: 11rem;" alt="...">
+          <div class="card-body">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="entrepreneurRadio"
+                value="entrepreneur" {{#ifEquals position 'entrepreneur' }} checked {{/ifEquals}}>
+              <label class="form-check-label" for="entrepreneurRadio">
+                創業家
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="creat-windbag row m-1">
@@ -32,7 +61,7 @@
       {{!-- form --}}
       <div class="col-10">
         <textarea class="form-control" id="exampleFormControlTextarea1"
-          rows="2">{{#if windBag}}{{windBag}}{{/if}}</textarea>
+          rows="2">{{#if windBag}}{{windBag}}{{/if}}{{#if empty}}請選擇角色!{{/if}}</textarea>
       </div>
     </div>
   </form>

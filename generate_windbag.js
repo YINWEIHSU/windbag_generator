@@ -17,15 +17,11 @@ function generateWindbag(options) {
   }
   const phrase = ['很簡單', '很容易', '很快', '很正常']
 
-  // define dummy data
-  // let flexRadioDefault = 'entrepreneur'
-
-  //
+  //define target's english name
   let englishTarget = Object.keys(task).find(e => e === options)
 
   //start generating windbag
   let windbag = `身為一個${target[englishTarget]}，${sample(task[englishTarget])}，${sample(phrase)}吧!`
-
 
 
   return windbag
